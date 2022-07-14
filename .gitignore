@@ -32,3 +32,6 @@
 *.app
 
 .idea
+build
+log
+install
