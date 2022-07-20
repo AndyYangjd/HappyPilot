@@ -1,12 +1,13 @@
 # JoyPilot
 
-免责声明：本工程仅是一个玩具，请不要用于实际的现实场景中。
+免责声明：本项目仅是一个joy，请不要用于实际的现实场景中。
 
 ----
 
 ## 一、起源
 
-本项目起源于今晚一个不成熟的快乐想法。去年曾经花了一小段时间学习了Autoware.Auto项目，基本了解了如何基本Ros2建立一个大的ADAS软件工程框架。不幸的是，最后在公司内部由于一些原因不能继续开展下去。今年由于最近晚上时间相对宽松，便计划在工作之外时间继续Autoware.Auto的学习。
+本项目起源于今晚一个不成熟的快乐想法。去年曾经花了一小段时间学习了Autoware.Auto项目，基本了解了如何基本Ros2建立一个大的ADAS软件工程框架。
+不幸的是，最后在公司内部由于一些原因不能继续开展下去。今年由于晚上时间相对宽松，便计划在工作之外时间继续Autoware.Auto的学习。
 
 本工程主要用于用于个人的学习研究中，来源于裁剪Autoware.Auto工程，裁减原因有如下：
 
@@ -27,5 +28,39 @@
   * andy：我个人的开发分支
 - 参与：如果有想参与的小伙伴，可以私信我沟通如何分配Autoware.Auto工程裁剪。
 
+## 四、工程结构
+工程从整体上分为三个层级：Src(根目录) ---> Module(模块) ---> Package(包)
+
+  * Src（根目录）：包含工程所有的源代码
+  * Module（模块）：模块是自动驾驶中感知、控制等大模块的抽象
+  * Package（包）：包是每个模块下任务的分解
+
+
+## 五、命名风格
+
+### 5.1头文件开头注释：
+``` c++
+#ifndef <Moduel-Name>__<Package-Name>__<File-Name>_
+#define <Moduel-Name>__<Package-Name>__<File-Name>_
+
+/*
+code here
+*/
+
+#endif  // <Moduel-Name>__<Package-Name>__<File-Name>_
+```
+
+### 5.2 命名空间
+```c++
+namespace <Project-Name> { // Project-Name，统一为  joypilot
+namespace <Module-Name> { // Module-Name
+namespace <Package-Name> { // Package-Name
+/*
+code here
+*/    
+} // namespace <Project-Name> 
+} // namespace <Module-Name> 
+} // namespace <Package-Name> 
+```
 
 

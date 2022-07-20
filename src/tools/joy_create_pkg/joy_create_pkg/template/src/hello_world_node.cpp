@@ -1,9 +1,8 @@
-#include "hello_world/hello_world_node.hpp"
+#include <hello_world/hello_world_node.hpp>
 
-namespace joypilot
-{
-namespace hello_world
-{
+namespace joypilot {
+namespace module-name {
+namespace pkg-name{
 
 HelloWorldNode::HelloWorldNode(const rclcpp::NodeOptions & options)
 :  Node("hello_world", options),
@@ -14,10 +13,11 @@ HelloWorldNode::HelloWorldNode(const rclcpp::NodeOptions & options)
 
 int32_t HelloWorldNode::print_hello() const
 {
+
   return hello_world::print_hello();
 }
-
-}  // namespace hello_world
+}  // namespace pkg-name
+}  // namespace module-name
 }  // namespace joypilot
 
 #include "rclcpp_components/register_node_macro.hpp"

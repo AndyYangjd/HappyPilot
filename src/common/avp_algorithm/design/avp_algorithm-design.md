@@ -1,11 +1,8 @@
-hello_world {#hello_world-package-design}
+avp_algorithm {#avp_algorithm-package-design}
 ===========
 
-
 # Purpose / Use cases
-<!-- Required -->
-<!-- Things to consider:
-    - Why did we implement this feature? -->
+contain some general algorithms for other packages, such as sort.
 
 
 # Design

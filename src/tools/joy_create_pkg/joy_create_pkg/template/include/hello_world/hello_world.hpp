@@ -1,17 +1,17 @@
-#ifndef HELLO_WORLD__HELLO_WORLD_HPP_
-#define HELLO_WORLD__HELLO_WORLD_HPP_
+#ifndef MODULE_NAME__PKG_NAME__FILE_NAME_HPP_
+#define MODULE_NAME__PKG_NAME__FILE_NAME_HPP_
 
 
 #include <cstdint>
 
-namespace joypilot
-{
-namespace hello_world
-{
+namespace joypilot {
+namespace module-name {
+namespace pkg-name {
 
-int32_t  print_hello();
+    int32_t print_hello();
 
-}  // namespace hello_world
+}  // namespace pkg-name
+}  // namespace module-name
 }  // namespace joypilot
 
-#endif  // HELLO_WORLD__HELLO_WORLD_HPP_
+#endif  // MODULE_NAME__PKG_NAME__FILE_NAME_HPP_

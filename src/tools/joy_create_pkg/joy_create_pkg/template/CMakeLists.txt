@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(hello_world)
+project(hello_world LANGUAGES "CXX")
 
-# require that dependencies from package.xml be available
+# Default to C++20
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 20)
+endif()
+
+# Dependencies
 find_package(ament_cmake_auto REQUIRED)
-ament_auto_find_build_dependencies(REQUIRED
-  ${${PROJECT_NAME}_BUILD_DEPENDS}
-  ${${PROJECT_NAME}_BUILDTOOL_DEPENDS}
-)
+ament_auto_find_build_dependencies()
 
 set(HELLO_WORLD_LIB_SRC
   src/hello_world.cpp
@@ -56,7 +58,7 @@ if(BUILD_TESTING)
   target_link_libraries(${TEST_HELLO_WORLD_EXE} ${PROJECT_NAME})
 endif()
 
-# ament package generation and installing
+# Install stuff
 ament_auto_package(INSTALL_TO_SHARE
   launch
 )
