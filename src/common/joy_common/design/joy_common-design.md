@@ -1,8 +1,11 @@
-avp_algorithm {#avp_algorithm-package-design}
+joy_common 
 ===========
 
+
 # Purpose / Use cases
-contain some general algorithms for other packages, such as sort.
+<!-- Required -->
+<!-- Things to consider:
+    - Why did we implement this feature? -->
 
 
 # Design

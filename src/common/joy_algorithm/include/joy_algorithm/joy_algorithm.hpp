@@ -1,0 +1,6 @@
+#ifndef COMMON__JOY_ALGORITHM__JOY_ALGORITHM_HPP_
+#define COMMON__JOY_ALGORITHM__JOY_ALGORITHM_HPP_
+
+#include <joy_algorithm/quick_sort.hpp>
+
+#endif  // COMMON__JOY_ALGORITHM__JOY_ALGORITHM_HPP_

@@ -1,5 +1,5 @@
-#ifndef COMMON__AVP_ALGORITHM__QUICK_SORT_
-#define COMMON__AVP_ALGORITHM__QUICK_SORT_
+#ifndef COMMON__JOY_ALGORITHM__QUICK_SORT_
+#define COMMON__JOY_ALGORITHM__QUICK_SORT_
 
 
 #include <algorithm>
@@ -10,9 +10,8 @@
 
 namespace joypilot {
 namespace common {
-namespace avp_algorithm {
+namespace joy_algorithm {
 
-    /// \brief Iterative quick sort implementation based on a stack.
     template<typename Container, typename RandomIt = typename Container::iterator>
     class QuickSorter {
     public:
@@ -22,23 +21,14 @@ namespace avp_algorithm {
 
         QuickSorter(QuickSorter &&) = default;
 
-        /// \brief Move equals operator
         QuickSorter &operator=(QuickSorter &&) = default;
 
-        /// \brief Default constructor, do not reserve capacity for stack
         QuickSorter() = default;
 
-        /// \brief Construct and reserve capacity for stack
-        /// \param[in] capacity - The maximum capacity of the container to be sorted
         explicit QuickSorter(::std::size_t capacity) {
             reserve(capacity);
         }
 
-        /// \brief Iterative quick sort implementation using a stack, sorts
-        /// range [first, last) using the given comparison function
-        /// \param[in] first Start of the range to sort
-        /// \param[in] last End of the range to sort (not included)
-        /// \param[in] comp The comparison function to base the sorting on
         template<typename Compare>
         void sort(RandomIt first, RandomIt last, Compare comp) const {
             if (::std::distance(first, last) < 2) {
@@ -74,29 +64,17 @@ namespace avp_algorithm {
             }
         }
 
-        /// \brief Iterative quick sort implementation using a stack, sorts
-        /// range [first, last) using the default less operation
-        /// \param[in] first Start of the range to sort
-        /// \param[in] last End of the range to sort (not included)
         void sort(RandomIt first, RandomIt last) const {
             sort(first, last, ::std::less<
             const decltype(*first)>());
         }
 
-        /// \brief Reserves helper stack capacity for the iterative quick sort
-        /// algorithm based on the capacity of the container to be sorted such that
-        /// no heap allocation is done during the algorithm.
-        /// \param[in] capacity - The maximum capacity of the container to be sorted
         void reserve(::std::size_t capacity) {
             // The maximum partition depth is n/2 + 1, which means we need a maximum
             // capacity of n + 2 to hold store the iterators in the stack.
             m_stack.reserve(capacity + 2);
         }
 
-        /// \brief Returns the maximum capacity that is allowed for a container to be
-        /// sorted.
-        /// \return The maximum capacity that a container may have if it is to be sorted
-        /// using this sorter.
         ::std::size_t capacity() const {
             if (m_stack.capacity() < 2) {
                 return 0;/// \brief Iterative quick sort implementation based on a stack.
@@ -109,23 +87,14 @@ namespace avp_algorithm {
 
                     QuickSorter(QuickSorter &&) = default;
 
-                    /// \brief Move equals operator
                     QuickSorter &operator=(QuickSorter &&) = default;
 
-                    /// \brief Default constructor, do not reserve capacity for stack
                     QuickSorter() = default;
 
-                    /// \brief Construct and reserve capacity for stack
-                    /// \param[in] capacity - The maximum capacity of the container to be sorted
                     explicit QuickSorter(::std::size_t capacity) {
                         reserve(capacity);
                     }
 
-                    /// \brief Iterative quick sort implementation using a stack, sorts
-                    /// range [first, last) using the given comparison function
-                    /// \param[in] first Start of the range to sort
-                    /// \param[in] last End of the range to sort (not included)
-                    /// \param[in] comp The comparison function to base the sorting on
                     template<typename Compare>
                     void sort(RandomIt first, RandomIt last, Compare comp) const {
                         if (::std::distance(first, last) < 2) {
@@ -161,40 +130,21 @@ namespace avp_algorithm {
                         }
                     }
 
-                    /// \brief Iterative quick sort implementation using a stack, sorts
-                    /// range [first, last) using the default less operation
-                    /// \param[in] first Start of the range to sort
-                    /// \param[in] last End of the range to sort (not included)
                     void sort(RandomIt first, RandomIt last) const {
                         sort(first, last, ::std::less<
                         const decltype(*first)>());
                     }
 
-                    /// \brief Reserves helper stack capacity for the iterative quick sort
-                    /// algorithm based on the capacity of the container to be sorted such that
-                    /// no heap allocation is done during the algorithm.
-                    /// \param[in] capacity - The maximum capacity of the container to be sorted
                     void reserve(::std::size_t capacity) {
                         // The maximum partition depth is n/2 + 1, which means we need a maximum
                         // capacity of n + 2 to hold store the iterators in the stack.
                         m_stack.reserve(capacity + 2);
                     }
-
-                    /// \brief Returns the maximum capacity that is allowed for a container to be
-                    /// sorted.
-                    /// \return The maximum capacity that a container may have if it is to be
                 }
                 return m_stack.capacity() - 2;
             }
 
             private:
-            /// \brief Partition range [first, last], based on pivot element last. After
-            /// execution all elements smaller than the pivot element are left of it and
-            /// all bigger elements right of it.
-            /// \param[in] first Start of the range to partition
-            /// \param[in] last End (included) of the range to partition, used as pivot
-            /// \param[in] comp Element comparison function
-            /// \return Iterator to the pivot element in the range
             template<typename Compare>
             static RandomIt partition(RandomIt first, RandomIt last, Compare comp) {
                 auto prev = first;
@@ -214,13 +164,12 @@ namespace avp_algorithm {
             }
 
             private:
-            /// Helper stack used for sorting, needs to have capacity (last-first)+2
             mutable ::std::vector <RandomIt> m_stack;
         };
     }
 
-}  // namespace avp_algorithm
+}  // namespace joy_algorithm
 }  // namespace common
 }  // namespace joypilot
 
-#endif  // COMMON__AVP_ALGORITHM__QUICK_SORT_
+#endif  // COMMON__JOY_ALGORITHM__QUICK_SORT_
