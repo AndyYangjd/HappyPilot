@@ -7,7 +7,7 @@
 
 namespace joypilot{
 namespace common{
-namespace joy_common{
+namespace types{
     using bool8_t = bool;
     using char8_t = char;
     using uchar8_t = unsigned char;
@@ -23,7 +23,7 @@ namespace joy_common{
     // arbitrary small constant: 1.0E-6F
     constexpr float32_t FEPS = 0.000001F;
 
-    struct COMMON_PUBLIC PointXYZIF{
+    struct PointXYZIF{
         float32_t x{0};
         float32_t y{0};
         float32_t z{0};
@@ -32,7 +32,7 @@ namespace joy_common{
         static constexpr uint16_t END_OF_SCAN_ID = 65535u;
     };
 
-    struct COMMON_PUBLIC PointXYZF{
+    struct PointXYZF{
         float32_t x{0};
         float32_t y{0};
         float32_t z{0};
@@ -44,7 +44,7 @@ namespace joy_common{
     // \brief Stores basic configuration information, does some simple validity checking
     static constexpr uint16_t POINT_BLOCK_CAPACITY = 512U;
 
-}  // namespace joy_common
+}  // namespace types
 }  // namespace common
 }  // namespace joypilot
 
