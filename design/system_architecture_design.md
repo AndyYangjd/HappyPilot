@@ -48,7 +48,9 @@ TODO
 
 ## 五、处理视角
 
-TODO
+![joypilot_pkg_module](images/joypilot_process_flowchart.png)
+
+<center>图5-1：处理视角（流程图）</center>
 
 
 
