@@ -7,6 +7,11 @@
   <maintainer email="yjd2008@hotmail.com">andy</maintainer>
   <license>TODO: License declaration</license>
 
+  <exec_depend>carla_waypoint_types</exec_depend>
+  <exec_depend>carla_msgs</exec_depend>
+  <exec_depend>ros_compatibility</exec_depend>
+
+  <depend>rclpy</depend>
 
   <export>
     <build_type>ament_python</build_type>
