@@ -101,3 +101,51 @@ Ros中Tf2的超集，主要增加了Autoware.Auto自定义Msg的坐标变换
 
 提供一些时间处理的便利函数
 
+## 三、drivers
+
+本模块主要提供硬件相关的驱动，给上层提供抽象。
+
+### 3.1 lgsvl_interface
+
+LgSVL仿真器的接口（此仿真器已停止维护、更新）。
+
+### 3.2 socketcan
+
+CAN端口的库文件 ，用于CAN通信的输入和输出。推荐使用的硬件品牌为Kvaser，支持三种OS。
+
+### 3.3 spinnaker_camera_driver
+
+spinnaker SDK的wrapper，用于从GigE接口（RJ45）工业相机获得数据。
+
+### 3.4 spinnaker_camera_nodes
+
+使用spinnaker_camera_driver包来连接相机并发布到Ros2中的图像消息中。
+
+### 3.5 ssc_interface
+
+AutonomouStuff's SSC和Autoware.Auto之间的消息转换。
+
+作者注：猜测AutonomouStuff提供了车辆的线控改装技术，主要用于主车信号的转换。
+
+### 3.6 vehicle_interface
+
+自动驾驶软件最主要的两个对外接口是感知传感器和主车平台，本包主要是后者，运行一个节点来做软件平台与主车的数据IO。
+
+### 3.7 velodyne_driver
+
+将激光雷达的packets转换为points，通过UDP协议。
+
+### 3.8 velodyne_nodes
+
+调用velodyne_driver来与软件栈通信
+
+### 3.9 xsens_driver
+
+xsens IMU的驱动包
+
+### 3.10 xsens_nodes
+
+xens IMU的驱动节点，调用xsens_driver包
+
+
+
